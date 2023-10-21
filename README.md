@@ -3,8 +3,8 @@
 <a href="https://docs.confluent.io/platform/current/connect/index.html" target="_blank"><img src="./images/logos/kafka-connect.jpg" alt="kafka logo" width="120" height="60"/></a>
 <a href="https://ksqldb.io/" target="_blank"><img src="./images/logos/kafka-ksqldb.png" alt="kafka logo" width="120" height="60"/></a>
 <a href="https://docs.confluent.io/platform/current/schema-registry/index.html" target="_blank"><img src="./images/logos/kafka-schema-registry.png" alt="kafka logo" width="120" height="60"/></a>
-<a href="https://www.conduktor.io/" target="_blank"><img src="./images/logos/conduktor-logo.png" alt="Conduktor logo"  width="140"/></a>
-<a href="https://www.postgresql.org/" target="_blank"><img src="./images/logos/postgresql-pgadmin.png" alt="Postgresql logo" width="150"/></a>
+<a href="https://www.conduktor.io/" target="_blank"><img src="./images/logos/conduktor-logo.png" alt="Conduktor logo"  width="140" height="90"/></a>
+<a href="https://www.postgresql.org/" target="_blank"><img src="./images/logos/postgresql-pgadmin.png" alt="Postgresql logo" width="150" height="110"/></a>
 </p>
 
 # Apache kafka Stack Tools
