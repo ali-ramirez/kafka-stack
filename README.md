@@ -9,22 +9,19 @@
 
 # Apache kafka Stack Tools
 
-Entorno básico Configuración Cluster y Brokers , **kafka connect**, **kafka-schema-registry**, **ksqldb**, **kafka-rest-proxy**, **Conduktor**, **PostgreSql y PgAdmin**  para <a href="https://kafka.apache.org/" target="blank">Apache kafka</a>.
+Basic `Cluster` and `Brokers` Environment Configuration for <a href="https://kafka.apache.org/" target="blank">Apache kafka</a>, **Kafka Connect**, **Kafka Schema Registry**, **ksqlDB-server**, **Kafka REST Proxy**, **Conduktor**, **PostgreSQL**, and **pgAdmin** in **Docker** containers.
 
-## Descripción
+## Description
 
-<p align="center">Configuración Cluster y brokers de <a href="https://kafka.apache.org/" target="blank">Apache kafka</a> conexión a <a href="https://docs.confluent.io/platform/current/connect/index.html" target="blank">kafka Connect</a>, <a href="https://docs.confluent.io/platform/current/schema-registry/index.html" target="blank">kafka-schema-registry</a>,
-<a href="https://ksqldb.io/" target="blank">ksqldb</a>, 
-<a href="https://docs.confluent.io/platform/current/kafka-rest/index.html" target="blank">kafka REST Proxy</a> y <a href="https://www.conduktor.io/" target="blank">Conduktor</a> en contenedores <a href="https://docs.docker.com/compose/" target="blank">Docker</a>.</p>
+<p align="center">Configuration of Cluster and Brokers in Apache Kafka with connection to <a href="https://docs.confluent.io/platform/current/connect/index.html" target="blank">kafka Connect</a>, <a href="https://docs.confluent.io/platform/current/schema-registry/index.html" target="blank">kafka-schema-registry</a>, <a href="https://ksqldb.io/" target="_blank">ksqlDB</a>, <a href="https://docs.confluent.io/platform/current/kafka-rest/index.html" target="blank">kafka REST Proxy</a>, <a href="https://www.conduktor.io/" target="blank">Conduktor</a>, <a href="https://www.postgresql.org/" target="blank">PostgreSql</a> and <a href="https://www.postgresql.org/" target="blank">PgAdmin 4</a> in <a href="https://docs.docker.com/compose/" target="blank">Docker</a> containers.</p>
 
+## Requirements
 
-## Requerimientos
+Make sure you have the latest versions of **Docker** and **Docker Compose** installed on your machine.
 
-Asegúrese de tener las últimas versiones de **Docker** y **Docker Compose** instaladas en su máquina.
+Clone this repository or copy the files from this repository into a new folder. In the `docker-compose.yml` files, you can change the ports (if you are running multiple containers on your system).
 
-Clona este repositorio o copia los archivos de este repositorio en una nueva carpeta. En los  `docker-compose.yml`archivos puede cambiar los puertos (en caso de que ejecute varios contenedores en su sistema).
-
-Con este proyecto puedes ejecutar rápidamente lo siguiente:
+With this project, you can quickly execute the following:
 
 - [Apache Kafka](https://hub.docker.com/r/confluentinc/cp-kafka)
 - [kafka connect](https://hub.docker.com/r/confluentinc/cp-kafka-connect)
@@ -38,42 +35,42 @@ Con este proyecto puedes ejecutar rápidamente lo siguiente:
 Contenido:
 
 - [Apache kafka Stack Tools](#apache-kafka-stack-tools)
-  - [Descripción](#descripción)
-  - [Requerimientos](#requerimientos)
-  - [Configuración](#configuración)
-  - [Instalación](#instalación)
-  - [Uso](#uso)
-    - [Servicios](#servicios)
+  - [Description](#description)
+  - [Requirements](#requirements)
+  - [Configuration](#configuration)
+  - [Installation](#installation)
+  - [Use](#use)
+    - [Services](#services)
     - [Conduktor](#conduktor)
   - [Licencia](#licencia)
 
 
-## Configuración
+## Configuration
 
-Edite el `.env` archivo para cambiar las variables de entorno predeterminadas.
+Edit the `.env` file to change the default environment variables.
+## Installation
 
-## Instalación
+Open a terminal and run `cd` to the folder where you can see the files `docker-compose-kafka-single-stack.yml`, which contains the necessary configuration to deploy a Kafka broker, and the file `docker-compose-kafka-multiple-stack.yml`, which contains the configuration for multiple **Apache Kafka** **brokers**.
 
-Abra una terminal y ejecute `cd` hacia la carpeta en la que podrá ver los archivos  `docker-compose-kafka-single-stack.yml` que contiene la configuración necesaria para desplegar un broker de kafka y el archivo `docker-compose-kafka-multiple-stack.yml` que contiene la configuración para multiples broker de apache kafka.
-
-según su necesidad ejecute:
+Execute as needed:
 
 ```
-docker-compose -f docker-compose--kafka-single-stack.yml up -d  
+docker-compose -f docker-compose-kafka-single-stack.yml up -d  
 ```
 
-Esto pondrá en funcionamiento los contenedores y creara los volúmenes según configuración de sus `docker-compose.yml` archivos, **asegúrese de darle los permisos de escritura al directorio** para que pueda crear los `volumenes` necesarios de los container sin inconveniente alguno.
+This will start the containers and create the volumes according to the configuration in your `docker-compose.yml` files. **Make sure to grant write permissions to the directory** so it can create the necessary volumes for the containers.
 
-* `.env` – archivo que contiene los datos de las variables de entorno.
-* `volumenes` – Carpeta que contiene los datos de los contenedores.
+* `.env` – File containing the environment variable data.
+* `volumenes` – Folder containing container data.
 
-Los contenedores ya están levantados y en funcionamiento. Debería poder acceder a la instalación de cada contenedor.
+The containers are already built and running. You should be able to access the installation of each container.
 
-## Uso
+## Use
 
-### Servicios
+### Services
 
-Puede Visitar `http:/localhost:8083` para ver el status de **kafka-connect** o visitar `http:/localhost:8088` y vera el estatus de **ksqldb-server** al igual que los demas servicios **kafka-rest-proxy** y **kafka-schema-registry**.
+You can visit `http:/localhost:8083` to check the status of **kafka-connect**, or go to` http:/localhost:8088` to view the status of **ksqldb-server**, as well as the other services such as **kafka-rest-proxy** and **kafka-schema-registry**.
+
 
 <a href="https://github.com/ali-ramirez/kafka-stack" rel="noreferrer">
 <p style="text-align: center;"><img src="./images/kafka-connect-status.png" width="800" alt="kafka connect"></p>
@@ -84,14 +81,13 @@ Puede Visitar `http:/localhost:8083` para ver el status de **kafka-connect** o v
 
 ### Conduktor 
 
-Puede Visitar `http:/localhost:8080` para acceder a **Conduktor**
-El nombre de usuario predeterminado es **admin@admin.io**, el password es **admin** las credenciales puede modificarlas en las variables de entorno que se encuentran en el `.env` archivo.
+ou can visit `http:/localhost:8080` to access **Conduktor**. The default username is **admin@admin.io**, and the password is **admin**. You can modify these credentials in the environment variables located in the `.env` file."
 
 <a href="https://github.com/ali-ramirez/kafka-stack" rel="noreferrer">
 <p style="text-align: center;"><img src="./images/conduktor-login.png" width="800" alt="conduktor"></p>
 </a>
 
-La herramienta **Conduktor** le permitirá ver el estatus del `cluster` como también visualizar los `brokers` que tenga desplegados de **Apache Kafka**.
+The **Conduktor** tool will allow you to view the status of the `cluster` as well as visualize the `brokers` you have deployed in **Apache Kafka**.
 
 <a href="https://github.com/ali-ramirez/kafka-stack" rel="noreferrer">
 <p style="text-align: center;"><img src="./images/conduktor-cluster.png" width="800" alt="conduktor"></p>
@@ -101,7 +97,7 @@ La herramienta **Conduktor** le permitirá ver el estatus del `cluster` como tam
 <p style="text-align: center;"><img src="./images/conduktor-brokers.png" width="800" alt="conduktor"></p>
 </a>
 
-En la Interfaz de **Conduktor** podra visualizar el estatus de la conexión con sus servicios  `kafka-connect`, `kafka-schema-registry`  configurados y conectados al **Apache Kafka**.
+In the **Conduktor** interface, you will be able to see the status of the connection with your configured and connected services, such as **kafka-connect** and **kafka-schema-registry** to **Apache Kafka**.
 
 <a href="https://github.com/ali-ramirez/kafka-stack" rel="noreferrer">
 <p style="text-align: center;"><img src="./images/kafka-schema-registry.png" width="800" alt="conduktor"></p>
@@ -111,13 +107,13 @@ En la Interfaz de **Conduktor** podra visualizar el estatus de la conexión con 
 <p style="text-align: center;"><img src="./images/kafka-connect.png" width="800" alt="conduktor"></p>
 </a>
 
-**Conduktor** le sera util para realizar las pruebas necesarias y administración de  **Apache Kafka** de forma visual,  podrá crear nuevos topic,  como también enviar y consumir mensajes.
+**Conduktor** will be useful for conducting the necessary tests and visual management of **Apache Kafka**. You can create new `topics` and send/receive `messages` as well.
 
 <a href="https://github.com/ali-ramirez/kafka-stack" rel="noreferrer">
 <p style="text-align: center;"><img src="./images/conduktor-topic.png" width="800" alt="conduktor"></p>
 </a>
 
-Desde la Interfaz de **Conduktor** podrá crear conectores o esquemas y podrá administrarlos y probarlos de una forma visual.
+From the **Conduktor** interface, you can create connectors and schemas, manage them, and test them visually.
 
 <a href="https://github.com/ali-ramirez/kafka-stack" rel="noreferrer">
 <p style="text-align: center;"><img src="./images/kafka-console.png" width="800" alt="conduktor"></p>
