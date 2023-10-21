@@ -183,6 +183,24 @@ services:
     networks: 
       - broker-kafka
 
+ pgadmin:
+    container_name: pgadmin
+    hostname: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-env.PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD:  ${PGADMIN_DEFAULT_PASSWORD:-env.PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - ${PGADMIN_PORT:-env.PGADMIN_PORT}:80
+    depends_on:
+      - postgresql
+    volumes:
+    - ./volumenes/pgadmin:/var/lib/pgadmin
+    networks: 
+      - broker-kafka
+
 networks: 
   broker-kafka:
     driver: bridge 
@@ -192,5 +210,6 @@ volumes:
   kafka1: {}
   conduktor_data: {}
   pg_data: {}
+  pgadmin: {}
   connectors: {}
   schema-registry: {}
