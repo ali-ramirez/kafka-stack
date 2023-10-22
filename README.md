@@ -42,7 +42,7 @@ Contenido:
   - [Use](#use)
     - [Services](#services)
     - [Conduktor](#conduktor)
-  - [Licencia](#licencia)
+  - [License](#license)
 
 
 ## Configuration
@@ -58,7 +58,7 @@ Execute as needed:
 docker-compose -f docker-compose-kafka-single-stack.yml up -d  
 ```
 
-This will start the containers and create the volumes according to the configuration in your `docker-compose.yml` files. **Make sure to grant write permissions to the directory** so it can create the necessary volumes for the containers.
+This will start the containers and create volumes according to the configuration in your `docker-compose.yml` files. **Make sure to grant write permissions to the directory** so it can create the necessary volumes for the containers. Similarly, **remember to clean the volumes folder when running different files to avoid data inconsistency**.
 
 * `.env` – File containing the environment variable data.
 * `volumenes` – Folder containing container data.
@@ -119,6 +119,6 @@ From the **Conduktor** interface, you can create connectors and schemas, manage 
 <p style="text-align: center;"><img src="./images/kafka-console.png" width="800" alt="conduktor"></p>
 </a>
 
-## Licencia
+## License
 
 [![CC0](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](http://creativecommons.org/publicdomain/zero/1.0)
